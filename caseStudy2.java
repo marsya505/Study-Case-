@@ -1,6 +1,4 @@
-import java.net.Socket;
 import java.util.Scanner;
-
 public class caseStudy2 {
 
     static String customer[][] = new String[100][7];
@@ -30,14 +28,13 @@ public class caseStudy2 {
                     System.out.println("Invalid menu. Choose again.");
                     break;
             }
-
         }
     }
 
     static void inputList(){
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < customer.length; i++){
-            System.out.print("enter customer name : ");
+            System.out.print("\nenter customer name : ");
             customer[i][0] = sc.nextLine();
             System.out.print("enter table number : ");
             int table = sc.nextInt();
@@ -45,11 +42,11 @@ public class caseStudy2 {
             break;       
         }       
 
-        System.out.println("=== MENU CAFE ===");
-        System.out.println("1.Black coffe - Rp 15000");
-        System.out.println("2.Latte - Rp 22000");
-        System.out.println("3.Teh tarik - 12000");
-        System.out.println("4.Noodles - Rp 18000");
+        System.out.println("\n=== MENU CAFE ===");
+        System.out.println("1. Black coffe - Rp 15000");
+        System.out.println("2. Latte - Rp 22000");
+        System.out.println("3. Teh tarik - 12000");
+        System.out.println("4. Noodles - Rp 18000");
 
         int chooseMenu;
             for (int i = 0; i < customer.length; i++){
@@ -78,10 +75,7 @@ public class caseStudy2 {
                 default: System.out.print("menu not avalaible, please enter again");
                     break;
                 }
-                
-                
-            }          
-            
+            }
         }  
 
         static int calculateMenu(int icoffee, int ilatte, int iteh, int inoodles) {
@@ -106,19 +100,27 @@ public class caseStudy2 {
             }
             return allTotal;
         } 
+
         static void display() {
-            System.out.println("\n===Order List===");
+            System.out.println("\n===ORDER LIST===");
             for (int i = 0; i < customer.length; i++) {
                 System.out.println("Customer Name: " + customer[i][0]);
                 System.out.println("Table Number: " + customer[i][1]);
                 System.out.println("Order list: ");
-                System.out.println();
+                if (customer[i][2] != null && !customer[i][2].equals("0")) {
+                System.out.println("Black Coffee x " + customer[i][2] + " = Rp ");
+                }
+                if (customer[i][3] != null && !customer[i][3].equals("0")) {
+                System.out.println("Latte x " + customer[i][3] + " = Rp ");
+                }
+                if (customer[i][4] != null && !customer[i][4].equals("0")) {
+                System.out.println("Tea x " + customer[i][4] + " = Rp ");
+                }
+                if (customer[i][5] != null && !customer[i][5].equals("0")) {
+                System.out.println("Fried Noodle x " + customer[i][5] + " = Rp ");
+                }
                 System.out.println("Total Order Price: " + customer[i][6]);
-                break;
             }
             return;
         }
-    }
-
-
-          
+    }    
