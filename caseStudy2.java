@@ -2,7 +2,16 @@ import java.util.Scanner;
 public class caseStudy2 {
 
     static String customer[][] = new String[100][7];
+    
 
+    //kolok 0 nama
+    //kolom 1 nomor meja
+    //kolom 2 jumlah kopi
+    //kolom 3 latte
+    //kolom 4 teh
+    //kolom 5 noodle
+    //kolom 6 harga akhir total
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (true) {
@@ -42,7 +51,8 @@ public class caseStudy2 {
             System.out.print("enter table number : ");
             int table = sc.nextInt();
             customer[i][1] = String.valueOf(table);   
-            break;       
+            break;     
+              
         }       
 
         System.out.println("\n=== MENU CAFE ===");
@@ -135,15 +145,8 @@ public class caseStudy2 {
                 System.out.println("Total Order Price: " + customer[i][6]);
             }
             return;
-        }
-}    
-        static void display(){
-           for (int i = 0; i < customer.length; i++) {
-                System.out.println("Customer Name : " + customer[i][0]);
-                System.out.println("Table Number : " + customer[i][1]);
-                System.out.println("order list : ");
-                System.out.println(customer[i][6]);
-                break;
-            }
-        }
+        }   
     }
+
+
+          
