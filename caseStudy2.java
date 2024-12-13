@@ -100,22 +100,8 @@ public class caseStudy2 {
                 }
             }
             return allTotal;
-        }
+        } 
     }
 
 
-            // int coffeQuantity = Integer.parseInt(customer[i][2]);
-            // int totalCoffe = icoffe * coffeQuantity;
-            // customer[i][2] = String.valueOf(totalCoffe);
-            
-            // int latteQuantity = Integer.parseInt(customer[i][3]);
-            // int totalLatte = ilatte * latteQuantity;
-            // customer[i][3] = String.valueOf(totalLatte);
-
-            // int tehQuantity = Integer.parseInt(customer[i][4]);
-            // int totalTeh = iteh * tehQuantity;
-            // customer[i][4] = String.valueOf(totalTeh);
-
-            // int noodlesQuantity = Integer.parseInt(customer[i][5]);
-            // int totalNoodles = inoodles * noodlesQuantity;
-            // customer[i][5] = String.valueOf(totalNoodles);
+          
