@@ -22,7 +22,12 @@ public class caseStudy2 {
                     break;
                 case 2: display();
                     break;
+                case 3:
+                    System.out.println("Exiting Program...");
+                    sc.close();
+                    return;
                 default:
+                    System.out.println("Invalid menu. Choose again.");
                     break;
             }
 
