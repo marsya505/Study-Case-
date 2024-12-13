@@ -2,6 +2,7 @@ import java.util.Scanner;
 public class caseStudy2 {
 
     static String customer[][] = new String[100][7];
+    static int customerIndex = 0;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -26,24 +27,17 @@ public class caseStudy2 {
                     return;
                 default:
                     System.out.println("Invalid menu. Choose again.");
-                case 2: display();;
-                    break;
-                default: System.out.println("exiting program ");
-                    return;
             }
         }
     }
 
     static void inputList(){
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < customer.length; i++){
             System.out.print("\nenter customer name : ");
-            customer[i][0] = sc.nextLine();
+            customer[customerIndex][0] = sc.nextLine();
             System.out.print("enter table number : ");
             int table = sc.nextInt();
-            customer[i][1] = String.valueOf(table);   
-            break;       
-        }       
+            customer[customerIndex][1] = String.valueOf(table);
 
         System.out.println("\n=== MENU CAFE ===");
         System.out.println("1. Black coffe - Rp 15000");
@@ -83,7 +77,7 @@ public class caseStudy2 {
 
         static int calculateMenu(int icoffee, int ilatte, int iteh, int inoodles) {
             int allTotal = 0;
-            for (int i = 0; i < customer.length; i++) {
+            for (int i = 0; i < customerIndex; i++) {
                 int customerTotal = 0;
                 int coffeTotal = 0; 
                 int latteTotal = 0; 
@@ -103,8 +97,6 @@ public class caseStudy2 {
                 }
                 if (customer[i][5] != null) {
                     int noodlesQuantity = Integer.parseInt(customer[i][5]);
-                    allTotal += inoodles * noodlesQuantity;   
-                }
                     noodleTotal = inoodles * noodlesQuantity;
                 } 
                 customerTotal = coffeTotal + latteTotal + tehTotal + noodleTotal;
@@ -115,35 +107,28 @@ public class caseStudy2 {
         } 
 
         static void display() {
-            System.out.println("\n===ORDER LIST===");
+            System.out.println("\n=== ORDER LIST ===");
             for (int i = 0; i < customer.length; i++) {
-                System.out.println("Customer Name: " + customer[i][0]);
-                System.out.println("Table Number: " + customer[i][1]);
-                System.out.println("Order list: ");
-                if (customer[i][2] != null && !customer[i][2].equals("0")) {
-                System.out.println("Black Coffee x " + customer[i][2] + " = Rp ");
+                if (customer[i][0] != null) { 
+                    System.out.println("Customer Name: " + customer[i][0]);
+                    System.out.println("Table Number: " + customer[i][1]);
+                    System.out.println("Order list: ");
+                    if (customer[i][2] != null && !customer[i][2].equals("0")) {
+                        System.out.println("Black Coffee x " + customer[i][2] + " = Rp " + (15000 * Integer.parseInt(customer[i][2])));
+                    }
+                    if (customer[i][3] != null && !customer[i][3].equals("0")) {
+                        System.out.println("Latte x " + customer[i][3] + " = Rp " + (22000 * Integer.parseInt(customer[i][3])));
+                    }
+                    if (customer[i][4] != null && !customer[i][4].equals("0")) {
+                        System.out.println("Tea x " + customer[i][4] + " = Rp " + (12000 * Integer.parseInt(customer[i][4])));
+                    }
+                    if (customer[i][5] != null && !customer[i][5].equals("0")) {
+                        System.out.println("Fried Noodle x " + customer[i][5] + " = Rp " + (18000 * Integer.parseInt(customer[i][5])));
+                    }
+        
+                    System.out.println("Total Order Price: Rp " + customer[i][6]);
+                    System.out.println("---------------------------");
                 }
-                if (customer[i][3] != null && !customer[i][3].equals("0")) {
-                System.out.println("Latte x " + customer[i][3] + " = Rp ");
-                }
-                if (customer[i][4] != null && !customer[i][4].equals("0")) {
-                System.out.println("Tea x " + customer[i][4] + " = Rp ");
-                }
-                if (customer[i][5] != null && !customer[i][5].equals("0")) {
-                System.out.println("Fried Noodle x " + customer[i][5] + " = Rp ");
-                }
-                System.out.println("Total Order Price: " + customer[i][6]);
             }
-            return;
-        }
-}    
-        static void display(){
-           for (int i = 0; i < customer.length; i++) {
-                System.out.println("Customer Name : " + customer[i][0]);
-                System.out.println("Table Number : " + customer[i][1]);
-                System.out.println("order list : ");
-                System.out.println(customer[i][6]);
-                break;
             }
         }
-    }
