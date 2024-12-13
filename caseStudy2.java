@@ -1,6 +1,4 @@
-import java.net.Socket;
 import java.util.Scanner;
-
 public class caseStudy2 {
 
     static String customer[][] = new String[100][7];
@@ -18,9 +16,9 @@ public class caseStudy2 {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("\n=== MAIN MENU ===");
-            System.out.println("1.Add order list");
-            System.out.println("2.Display all order list");
-            System.out.println("3.Exit");
+            System.out.println("1. Add order list");
+            System.out.println("2. Display all order list");
+            System.out.println("3. Exit");
             System.out.print("Choose a menu : ");
             int menu = sc.nextInt();
 
@@ -29,20 +27,26 @@ public class caseStudy2 {
                     int grandTotal = calculateMenu(15000,22000, 12000, 18000);
                     System.out.println("total price : " + grandTotal);                   
                     break;
+                case 2: display();
+                    break;
+                case 3:
+                    System.out.println("Exiting Program...");
+                    sc.close();
+                    return;
+                default:
+                    System.out.println("Invalid menu. Choose again.");
                 case 2: display();;
                     break;
-                
                 default: System.out.println("exiting program ");
                     return;
             }
-
         }
     }
 
     static void inputList(){
         Scanner sc = new Scanner(System.in);
         for (int i = 0; i < customer.length; i++){
-            System.out.print("enter customer name : ");
+            System.out.print("\nenter customer name : ");
             customer[i][0] = sc.nextLine();
             System.out.print("enter table number : ");
             int table = sc.nextInt();
@@ -51,11 +55,11 @@ public class caseStudy2 {
               
         }       
 
-        System.out.println("=== MENU CAFE ===");
-        System.out.println("1.Black coffe - Rp 15000");
-        System.out.println("2.Latte - Rp 22000");
-        System.out.println("3.Teh tarik - 12000");
-        System.out.println("4.Noodles - Rp 18000");
+        System.out.println("\n=== MENU CAFE ===");
+        System.out.println("1. Black coffe - Rp 15000");
+        System.out.println("2. Latte - Rp 22000");
+        System.out.println("3. Teh tarik - 12000");
+        System.out.println("4. Noodles - Rp 18000");
 
         int chooseMenu;
             for (int i = 0; i < customer.length; i++){
@@ -84,10 +88,7 @@ public class caseStudy2 {
                 default: System.out.print("menu not avalaible, please enter again");
                     break;
                 }
-                
-                
-            }          
-            
+            }
         }  
 
         static int calculateMenu(int icoffee, int ilatte, int iteh, int inoodles) {
@@ -112,6 +113,8 @@ public class caseStudy2 {
                 }
                 if (customer[i][5] != null) {
                     int noodlesQuantity = Integer.parseInt(customer[i][5]);
+                    allTotal += inoodles * noodlesQuantity;   
+                }
                     noodleTotal = inoodles * noodlesQuantity;
                 } 
                 customerTotal = coffeTotal + latteTotal + tehTotal + noodleTotal;
