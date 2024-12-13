@@ -1,3 +1,4 @@
+import java.net.Socket;
 import java.util.Scanner;
 
 public class caseStudy2 {
@@ -8,9 +9,9 @@ public class caseStudy2 {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("\n=== MAIN MENU ===");
-            System.out.println("1.Add order list");
-            System.out.println("2.Display all order list");
-            System.out.println("3.Exit");
+            System.out.println("1. Add order list");
+            System.out.println("2. Display all order list");
+            System.out.println("3. Exit");
             System.out.print("Choose a menu : ");
             int menu = sc.nextInt();
 
@@ -19,7 +20,7 @@ public class caseStudy2 {
                     int grandTotal = calculateMenu(15000,22000, 12000, 18000);
                     System.out.println("total price : " + grandTotal);
                     break;
-                case 2: 
+                case 2: display();
                     break;
                 default:
                     break;
@@ -95,26 +96,24 @@ public class caseStudy2 {
                 }
                 if (customer[i][5] != null) {
                     int noodlesQuantity = Integer.parseInt(customer[i][5]);
-                    allTotal += inoodles * noodlesQuantity;
+                    allTotal += inoodles * noodlesQuantity;   
                 }
             }
             return allTotal;
+        } 
+        static void display() {
+            System.out.println("\n===Order List===");
+            for (int i = 0; i < customer.length; i++) {
+                System.out.println("Customer Name: " + customer[i][0]);
+                System.out.println("Table Number: " + customer[i][1]);
+                System.out.println("Order list: ");
+                System.out.println();
+                System.out.println("Total Order Price: " + customer[i][6]);
+                break;
+            }
+            return;
         }
     }
 
 
-            // int coffeQuantity = Integer.parseInt(customer[i][2]);
-            // int totalCoffe = icoffe * coffeQuantity;
-            // customer[i][2] = String.valueOf(totalCoffe);
-            
-            // int latteQuantity = Integer.parseInt(customer[i][3]);
-            // int totalLatte = ilatte * latteQuantity;
-            // customer[i][3] = String.valueOf(totalLatte);
-
-            // int tehQuantity = Integer.parseInt(customer[i][4]);
-            // int totalTeh = iteh * tehQuantity;
-            // customer[i][4] = String.valueOf(totalTeh);
-
-            // int noodlesQuantity = Integer.parseInt(customer[i][5]);
-            // int totalNoodles = inoodles * noodlesQuantity;
-            // customer[i][5] = String.valueOf(totalNoodles);
+          
