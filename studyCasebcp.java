@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class caseStudy2 {
+public class studyCasebcp {
     //penyimpanan nama 
     static String[] listCustomerName = new String[10];
 
@@ -13,24 +13,13 @@ public class caseStudy2 {
     //varible global, buat track kita ada di index berapa
     static int customerIndex = 0;
 
-    static String customer[][] = new String[100][7];
-    
-
-    //kolok 0 nama
-    //kolom 1 nomor meja
-    //kolom 2 jumlah kopi
-    //kolom 3 latte
-    //kolom 4 teh
-    //kolom 5 noodle
-    //kolom 6 harga akhir total
-    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (true) {
             System.out.println("\n=== MAIN MENU ===");
-            System.out.println("1. Add order list");
-            System.out.println("2. Display all order list");
-            System.out.println("3. Exit");
+            System.out.println("1.Add order list");
+            System.out.println("2.Display all order list");
+            System.out.println("3.Exit");
             System.out.print("Choose a menu : ");
             int menu = sc.nextInt();
 
@@ -50,55 +39,44 @@ public class caseStudy2 {
     static void inputOrder(){
         Scanner sc = new Scanner(System.in);
         
-        System.out.print("\nInput name of customer : ");
+        System.out.print("input name of customer : ");
         listCustomerName[customerIndex] = sc.nextLine();
-        System.out.print("Input number of table : ");
+        System.out.print("input number of table :");
         listOrder[customerIndex][0] = sc.nextInt(); 
         
-        for (int i = 0; i < customer.length; i++){
-            System.out.print("\nenter customer name : ");
-            customer[i][0] = sc.nextLine();
-            System.out.print("enter table number : ");
-            int table = sc.nextInt();
-            customer[i][1] = String.valueOf(table);   
-            break;     
-              
-        }       
-
-        System.out.println("\n=== MENU CAFE ===");
-        System.out.println("1. Black coffe - Rp 15000");
-        System.out.println("2. Latte - Rp 22000");
-        System.out.println("3. Teh tarik - 12000");
-        System.out.println("4. Noodles - Rp 18000");
+        System.out.println("=== MENU CAFE ===");
+        System.out.println("1.Black coffe - Rp 15000");
+        System.out.println("2.Latte - Rp 22000");
+        System.out.println("3.Teh tarik - 12000");
+        System.out.println("4.Noodles - Rp 18000");
         
         while(true){
-            System.out.print("\nChoose a menu (enter number of menu, or enter 0 to finish) : ");
+            System.out.print("choose a menu (enter number of menu or enter 0 to finish) : ");
             int chooseMenu = sc.nextInt();
             switch (chooseMenu) {
                 case 1: 
-                    System.out.print("Enter number of Black Coffe : ");
+                    System.out.print("enter number of black coffe :");
                     listOrder[customerIndex][1] += sc.nextInt();
                     break;
                 case 2: 
-                    System.out.print("Enter number of Latte : ");
+                    System.out.print("enter number of latte : ");
                     listOrder[customerIndex][2] += sc.nextInt();
                     break;
                 case 3: 
-                    System.out.print("Enter number of Tarik Tea : ");
+                    System.out.print("enter number of teh tarik : ");
                     listOrder[customerIndex][3] += sc.nextInt();
                     break;
                 case 4: 
-                    System.out.print("Enter number of Fried Noodles : ");
+                    System.out.print("enter number of noodles : ");
                     listOrder[customerIndex][4] += sc.nextInt();
                     break;
                 default: 
                     if (chooseMenu != 0 ) {
-                        System.out.print("Menu not avalaible, please enter again");
+                        System.out.print("menu not avalaible, please enter again");
                     }             
             }
             if (chooseMenu == 0) {
-                System.out.println("\nThe order was successfully added");
-                System.out.println("The Total payment is: Rp " + calculationOrder());
+                System.out.println("your total payment is : " + calculationOrder());
                 break;
             }
         } 
@@ -171,14 +149,10 @@ public class caseStudy2 {
                         break;
                     }
                 }
+                System.out.println("Total Order Price: " + calculationList[i][4]+"\n");
+                System.out.println("---------------------------------\n");
 
-                System.out.println("Total Order Price Rp:" + calculationList[i][4]+"\n");
-                System.out.println("---------------------------------");
+
         }
     }
 }
-                System.out.println("Total Order Price: " + customer[i][6]);
-            }
-            return;
-        }   
-    }
